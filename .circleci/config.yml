@@ -11,29 +11,30 @@ jobs:
     working_directory: ~/app/udagram-frontend
     executor: node/default
     steps:
-     # checkout code and install node
+     # PHASE 1: Checkout code and Install Node
       - checkout:
-          path: ~/app
+          path: ~/Host_FullStack_AWS_CircleCI
       - node/install-packages:
-          app-dir: ~/app/udagram-frontend
-     # TODO: Build the Client App
+          app-dir: ~/Host_FullStack_AWS_CircleCI/udagram-frontend
+     # PHASE 2: Build the Client App
       - run:
           name: Build Frontend
           command: npm run build
       - aws-cli/install
-     # TODO: Build the Client App
+     # PHASE 3: Deploy the Client App
       - run:
           name: Deploy Frontend
           command: aws s3 cp --recursive --acl public-read ./www $S3_BUCKET_FRONTEND
   server-side:
-    working_directory: ~/app/udagram-api
+    working_directory: ~/Host_FullStack_AWS_CircleCI/udagram-api
     executor: node/default
     steps:
-    # checkout code and install node
+       # PHASE 4: Checkout code and Install Node
       - checkout:
-          path: ~/app
+          path: ~/Host_FullStack_AWS_CircleCI
       - node/install-packages:
-          app-dir: ~/app/udagram-api
+          app-dir: ~/Host_FullStack_AWS_CircleCI/udagram-api
+       # PHASE 5: Build and Archive the Server App
       - run:
           name: Build and ZIP Server
           command: |-
@@ -41,6 +42,7 @@ jobs:
             printenv > www/.env
             npm run archive
       - aws-cli/install
+      # PHASE 6: Deploy the Server App
       - run:
           name: Deploy Server
           command: |-
