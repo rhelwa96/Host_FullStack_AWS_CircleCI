@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Install API Dependencies
           command: |
-           npm run backend:install
+           npm run api:install
       # TODO: Build the frontend app
       - run:
           name: Front-End Build
@@ -35,7 +35,7 @@ jobs:
       - run:
           name: API Build
           command: |
-            echo "TODO: Build the backend API"
+            npm run api:build
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -56,7 +56,7 @@ jobs:
           name: Deploy API
           # TODO: Install, build, deploy in both apps
           command: |
-             npm run backend:deploy
+             npm run api:deploy
             
 workflows:
   udagram:
