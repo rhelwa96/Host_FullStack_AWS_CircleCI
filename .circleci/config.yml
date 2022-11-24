@@ -39,15 +39,16 @@ jobs:
           command: |
             npm run api:build
       - run:
-          name: Deploy App
-          # TODO: Install, build, deploy in both apps
-          command: |
-             npm run frontend:deploy
-      - run:
           name: Deploy API
           # TODO: Install, build, deploy in both apps
           command: |
              npm run api:deploy
+      - run:
+          name: Deploy App
+          # TODO: Install, build, deploy in both apps
+          command: |
+             npm run frontend:deploy
+
             
 workflows:
   build-and-deploy:
