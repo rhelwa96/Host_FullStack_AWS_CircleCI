@@ -12,9 +12,4 @@
 - CircleCI Build & Deploy Successfully [here](screenshot/CircleCI_Build_Deploy_Client_Server.png)
 - CircleCI Enviormement Variables [here](screenshot/CircleCI_Enviorment_Variables.png)
 - Pipeline Diagram [here](Docs/diagram/Pipeline.png)
- 
-## Frontend [link](http://host-udagram.s3-website-us-east-1.amazonaws.com/home).
 
-## Backend [link](http://udagram-api-dev-14.eba-zp5resvh.us-east-1.elasticbeanstalk.com/).
-  
-*** *Please Note the Frontend/Backend end will expire once Udacity Reviewer succedded this project***.
